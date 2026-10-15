@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sj-se/main/json-schema/sj-se-post-booking-request2-schema.json",
+  "title": "PostBookingRequest2",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/sj-se-openapi-generated.yml#/components/schemas/PostBookingRequest2",
+  "type": "object",
+  "properties": {
+    "bookingrequest.externalRef": {
+      "type": "string",
+      "description": "Unique booking reference in the caller’s system."
+    },
+    "passenger": {
+      "type": "string",
+      "description": "Passenger information (firstName, lastName, optional email/phone)."
+    },
+    "placeSelection": {
+      "type": "string",
+      "description": "Place selection for seat/compartment."
+    }
+  },
+  "required": [
+    "bookingrequest.externalRef",
+    "passenger"
+  ]
+}

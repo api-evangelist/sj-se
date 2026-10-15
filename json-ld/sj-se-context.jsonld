@@ -1,0 +1,113 @@
+{
+  "@context": {
+    "@vocab": "https://sj.se/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "sj": "https://sj.se/schema#",
+    "GetBookingResponse": "sj:GetBookingResponse",
+    "booking": {
+      "@id": "sj:booking"
+    },
+    "PostBookingRequest": "sj:PostBookingRequest",
+    "externalRef": {
+      "@id": "sj:externalRef",
+      "@type": "xsd:string"
+    },
+    "purchaser": {
+      "@id": "sj:purchaser"
+    },
+    "offers": {
+      "@id": "sj:offers",
+      "@container": "@list"
+    },
+    "passengerSpecifications": {
+      "@id": "sj:passengerSpecifications",
+      "@container": "@list"
+    },
+    "embed": {
+      "@id": "sj:embed",
+      "@container": "@list"
+    },
+    "PostOffersRequest": "sj:PostOffersRequest",
+    "tripSpecifications": {
+      "@id": "sj:tripSpecifications",
+      "@container": "@list"
+    },
+    "offerSearchCriteria": {
+      "@id": "sj:offerSearchCriteria"
+    },
+    "anonymousPassengerSpecifications": {
+      "@id": "sj:anonymousPassengerSpecifications",
+      "@container": "@list"
+    },
+    "PostOffersResponse": "sj:PostOffersResponse",
+    "GetBookingResponse2": "sj:GetBookingResponse2",
+    "booking.id": {
+      "@id": "sj:booking.id",
+      "@type": "xsd:string"
+    },
+    "booking.fulfillmentId": {
+      "@id": "sj:booking.fulfillmentId",
+      "@type": "xsd:string"
+    },
+    "PostBookingRequest2": "sj:PostBookingRequest2",
+    "bookingrequest.externalRef": {
+      "@id": "sj:bookingrequest.externalRef",
+      "@type": "xsd:string"
+    },
+    "passenger": {
+      "@id": "sj:passenger",
+      "@type": "xsd:string"
+    },
+    "placeSelection": {
+      "@id": "sj:placeSelection",
+      "@type": "xsd:string"
+    },
+    "PostBookingResponse": "sj:PostBookingResponse",
+    "booking.bookingCode": {
+      "@id": "sj:booking.bookingCode",
+      "@type": "xsd:string"
+    },
+    "GetBookingsBookingidResponse": "sj:GetBookingsBookingidResponse",
+    "PostContactsContactidRequest": "sj:PostContactsContactidRequest",
+    "email": {
+      "@id": "sj:email",
+      "@type": "xsd:string"
+    },
+    "PostContactsContactidResponse": "sj:PostContactsContactidResponse",
+    "PostExchangeOffersRequest": "sj:PostExchangeOffersRequest",
+    "exchangeOffer": {
+      "@id": "sj:exchangeOffer",
+      "@type": "xsd:string"
+    },
+    "PostExchangeOperationsRequest": "sj:PostExchangeOperationsRequest",
+    "exchangeOperation": {
+      "@id": "sj:exchangeOperation",
+      "@type": "xsd:string"
+    },
+    "GetFulfillmentsFulfillmentidResponse": "sj:GetFulfillmentsFulfillmentidResponse",
+    "fulfillment.controlNumber": {
+      "@id": "sj:fulfillment.controlNumber",
+      "@type": "xsd:string"
+    },
+    "fulfillment.aztecCode": {
+      "@id": "sj:fulfillment.aztecCode",
+      "@type": "xsd:string"
+    },
+    "PostOffersRequest2": "sj:PostOffersRequest2",
+    "PostOffersResponse2": "sj:PostOffersResponse2",
+    "PatchPassengerRequest": "sj:PatchPassengerRequest",
+    "passenger.id": {
+      "@id": "sj:passenger.id",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "SJ API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects SJ's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-15) from openapi/_ae-authored/sj-se-openapi-generated.yml.",
+  "dcterms:created": "2026-10-15",
+  "dcterms:source": [
+    "openapi/_ae-authored/sj-se-openapi-generated.yml"
+  ]
+}

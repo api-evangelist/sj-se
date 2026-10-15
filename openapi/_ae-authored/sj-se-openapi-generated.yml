@@ -1,0 +1,543 @@
+openapi: 3.1.0
+info:
+  title: SJ API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 17 operation(s) read from 3 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; SJ has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 1
+    documentation: 16
+    pages-with-code: 1
+    pages-read: 3
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.sj.se/apis/reseller-api/get-started
+  - https://developer.sj.se/apis/reseller-api/reference-documentation
+  - https://developer.sj.se/apis/customer-api/reference-documentation
+servers:
+- url: https://login.microsoftonline.com
+paths:
+  /$TENANT_ID/oauth2/v2.0/token:
+    post:
+      operationId: post_TENANT_ID_oauth2_v2_0_token
+      tags:
+      - Tenant Id
+      summary: POST /$TENANT_ID/oauth2/v2.0/token
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl Example request-response (cUrl) curl -X POST \"https://login.microsoftonline.com/$TENANT_ID/oauth2/v2.0/token\"  -d \"\
+          client_id=$CLIENT_ID\"  -d \"grant_type=$GRANT_TYPE\"  -d \"client_secret=$CLIENT_SECRET\"  -d \"scope=$SCOPE\"  Response \n{ \n \"\
+          token_type\": \"Bearer\", \n \"expires_in\": 3599, \n \"ext_expires_in\": 3599, \n \"access_token\": <JWT_TOKEN> \n} Requestor header\
+          \ Each sales channel connected to the Re"
+  /Booking:
+    get:
+      operationId: get_Booking
+      tags:
+      - Booking
+      summary: Quick Start Guide for SJ Reseller API
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookingResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_Booking
+      tags:
+      - Booking
+      summary: Quick Start Guide for SJ Reseller API
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBookingRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /Offers:
+    post:
+      operationId: post_Offers
+      tags:
+      - Offers
+      summary: Quick Start Guide for SJ Reseller API
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOffersRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOffersResponse'
+      x-evidence:
+        kind: documentation
+  /availabilities:
+    get:
+      operationId: get_availabilities
+      tags:
+      - Availabilities
+      summary: GET /availabilities can be called in an offer or booking context to retrieve seat availability.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /availabilities/{availabilitieid}:
+    get:
+      operationId: get_availabilities_availabilitieid
+      tags:
+      - Availabilities
+      summary: GET /availabilities/place-map returns seat‑map information for a booking and reservation.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      parameters:
+      - name: availabilitieid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: bookingId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Identifier of the booking.
+      - name: reservationId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Identifier of the reservation.
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at availabilitieId
+  /booking:
+    get:
+      operationId: get_booking
+      tags:
+      - Booking
+      summary: GET /booking retrieves a booking, including any provisional fulfillmentId.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookingResponse2'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_booking
+      tags:
+      - Booking
+      summary: POST /booking creates a provisional booking with required externalRef and passenger information.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBookingRequest2'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostBookingResponse'
+      x-evidence:
+        kind: documentation
+  /bookings/{bookingid}:
+    get:
+      operationId: get_bookings_bookingid
+      tags:
+      - Bookings
+      summary: GET /bookings/{bookingId} returns the booking details, including fulfillmentId.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      parameters:
+      - name: bookingid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookingsBookingidResponse'
+      x-evidence:
+        kind: documentation
+  /bookings/{bookingid}/fulfillment:
+    post:
+      operationId: post_bookings_bookingid_fulfillment
+      tags:
+      - Bookings
+      summary: POST /bookings/{bookingId}/fulfillment creates a fulfillment for a booking (asynchronous, returns 202).
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      parameters:
+      - name: bookingid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /contacts/{contactid}:
+    post:
+      operationId: post_contacts_contactid
+      tags:
+      - Contacts
+      summary: Search for an SJ customer by e-mail address.
+      x-source: https://developer.sj.se/apis/customer-api/reference-documentation
+      parameters:
+      - name: contactid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostContactsContactidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostContactsContactidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at contactId
+  /exchange-offers:
+    post:
+      operationId: post_exchange_offers
+      tags:
+      - Exchange Offers
+      summary: POST /exchange-offers creates an exchange offer for a booking.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostExchangeOffersRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /exchange-operations:
+    patch:
+      operationId: patch_exchange_operations
+      tags:
+      - Exchange Operations
+      summary: Optional, does not change any states
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_exchange_operations
+      tags:
+      - Exchange Operations
+      summary: POST /exchange-operations creates a provisional exchange operation and new provisional booking parts.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostExchangeOperationsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /fulfillments/{fulfillmentid}:
+    get:
+      operationId: get_fulfillments_fulfillmentid
+      tags:
+      - Fulfillments
+      summary: GET /fulfillments/{fulfillmentId} retrieves fulfillment details such as control number and Aztec code.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      parameters:
+      - name: fulfillmentid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFulfillmentsFulfillmentidResponse'
+      x-evidence:
+        kind: documentation
+  /offers:
+    post:
+      operationId: post_offers
+      tags:
+      - Offers
+      summary: Quick Start Guide for SJ Reseller API
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOffersRequest2'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOffersResponse2'
+      x-evidence:
+        kind: documentation
+  /passenger:
+    patch:
+      operationId: patch_passenger
+      tags:
+      - Passenger
+      summary: PATCH /passenger updates passenger details in a provisional booking.
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchPassengerRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetBookingResponse:
+      type: object
+      properties:
+        booking:
+          type: object
+          description: Complete booking information with tickets
+    PostBookingRequest:
+      type: object
+      properties:
+        externalRef:
+          type: string
+          description: Client‑side booking reference
+        purchaser:
+          type: object
+          description: Purchaser details
+        offers:
+          type: array
+          description: Selected offer IDs and passenger references
+        passengerSpecifications:
+          type: array
+          description: Passenger data for the booking
+        embed:
+          type: array
+          description: Embedding options, e.g., "ALL"
+      required:
+      - externalRef
+      - purchaser
+      - offers
+      - passengerSpecifications
+    PostOffersRequest:
+      type: object
+      properties:
+        tripSpecifications:
+          type: array
+          description: List of trips to get offers for
+        offerSearchCriteria:
+          type: object
+          description: Search criteria such as currency
+        anonymousPassengerSpecifications:
+          type: array
+          description: Passenger data needed for pricing
+        embed:
+          type: array
+          description: Embedding options, e.g., "ALL"
+      required:
+      - tripSpecifications
+      - offerSearchCriteria
+      - anonymousPassengerSpecifications
+    PostOffersResponse:
+      type: object
+      properties:
+        offers:
+          type: array
+          description: List of offer objects
+    GetBookingResponse2:
+      type: object
+      properties:
+        booking.id:
+          type: string
+          description: Booking identifier.
+        booking.fulfillmentId:
+          type: string
+          description: Identifier of the fulfillment (if present).
+    PostBookingRequest2:
+      type: object
+      properties:
+        bookingrequest.externalRef:
+          type: string
+          description: Unique booking reference in the caller’s system.
+        passenger:
+          type: string
+          description: Passenger information (firstName, lastName, optional email/phone).
+        placeSelection:
+          type: string
+          description: Place selection for seat/compartment.
+      required:
+      - bookingrequest.externalRef
+      - passenger
+    PostBookingResponse:
+      type: object
+      properties:
+        booking.id:
+          type: string
+          description: Booking identifier.
+        booking.bookingCode:
+          type: string
+          description: Same value as booking.id.
+    GetBookingsBookingidResponse:
+      type: object
+      properties:
+        booking.id:
+          type: string
+          description: Booking identifier.
+        booking.fulfillmentId:
+          type: string
+          description: Identifier of the fulfillment.
+    PostContactsContactidRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Must be URL encoded
+      required:
+      - email
+    PostContactsContactidResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: A Customer object (see schema definitions)
+        '404':
+          type: string
+          description: There is no SJ customer with this email address.
+    PostExchangeOffersRequest:
+      type: object
+      properties:
+        exchangeOffer:
+          type: string
+          description: Details of the exchange request, including fulfillments to exchange.
+      required:
+      - exchangeOffer
+    PostExchangeOperationsRequest:
+      type: object
+      properties:
+        exchangeOperation:
+          type: string
+          description: Details of the exchange operation.
+      required:
+      - exchangeOperation
+    GetFulfillmentsFulfillmentidResponse:
+      type: object
+      properties:
+        fulfillment.controlNumber:
+          type: string
+          description: Ticket number.
+        fulfillment.aztecCode:
+          type: string
+          description: Base64 string of the Aztec code.
+    PostOffersRequest2:
+      type: object
+      properties:
+        tripSpecifications:
+          type: array
+          description: List of trips to get offers for
+        offerSearchCriteria:
+          type: object
+          description: Search criteria such as currency
+        anonymousPassengerSpecifications:
+          type: array
+          description: Passenger data needed for pricing
+        embed:
+          type: array
+          description: Embedding options, e.g., "ALL"
+      required:
+      - tripSpecifications
+      - offerSearchCriteria
+      - anonymousPassengerSpecifications
+    PostOffersResponse2:
+      type: object
+      properties:
+        offers:
+          type: array
+          description: List of offer objects
+    PatchPassengerRequest:
+      type: object
+      properties:
+        passenger.id:
+          type: string
+          description: Identifier of the passenger to patch.
+        passenger:
+          type: string
+          description: Complete passenger details (firstName, lastName, optional age, cards).
+      required:
+      - passenger.id
+      - passenger
+tags:
+- name: Availabilities
+- name: Booking
+- name: Bookings
+- name: Contacts
+- name: Exchange Offers
+- name: Exchange Operations
+- name: Fulfillments
+- name: Offers
+- name: Passenger
+- name: Tenant Id

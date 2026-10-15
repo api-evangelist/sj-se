@@ -1,23 +1,112 @@
 aid: sj-se
+
 name: SJ
-description: 'SJ is a company surfaced via the API Evangelist harvest backlog (source: stockholm-trip)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'SJ is a company surfaced via the API Evangelist harvest backlog (source: stockholm-trip) and added to the network as a stub for
+  full-pipeline profiling.'
+
 url: https://raw.githubusercontent.com/api-evangelist/sj-se/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:stockholm-trip
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-15 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-15'
+
 modified: '2026-10-15'
+
 tags:
 - Company
-apis: []
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/sj-se-rules.yml
+- type: JSONLD
+  url: json-ld/sj-se-context.jsonld
+- type: Vocabulary
+  url: vocabulary/sj-se-vocabulary.yml
+- type: DataModel
+  url: data-model/sj-se-data-model.yml
+- type: Conformance
+  url: conformance/sj-se-conformance.yml
+- type: Hosts
+  url: hosts/sj-se-hosts.yml
+- type: Vendors
+  url: vendors/sj-se-vendors.yml
+- type: TermsOfService
+  url: https://developer.sj.se/terms-and-conditions
+- type: StatusPage
+  url: https://developer.sj.se/status
+- type: Documentation
+  url: https://developer.sj.se/
+- type: DomainSecurity
+  url: security/sj-se-domain-security.yml
 - type: Website
   url: https://sj.se/
+
+apis:
+- name: SJ API
+  description: Explore available APIs and their documentation, including Reseller API and Customer API.
+  humanURL: https://developer.sj.se/apis
+  baseURL: null
+  x-coverage:
+    state: unreadable
+    reason: no-machine-readable-spec
+    detail: Developer portal lists APIs but no machine‑readable OpenAPI spec was found on any host.
+    evidence:
+    - url: https://developer.sj.se/apis
+      status: 200
+    checked: '2026-10-15'
+  properties: []
+  aid: sj-se:sj-api
+- aid: sj-se:sj-se-api
+  name: SJ API
+  description: 'SJ API as documented publicly: 17 operations. Contract generated from the documentation by API Evangelist (2026-10-15); not the
+
+    provider''s own document.'
+  humanURL: https://developer.sj.se/apis/reseller-api/get-started
+  baseURL: https://login.microsoftonline.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/sj-se-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+
+x-coverage:
+  state: none
+  reason: no-developer-program
+  method: derived
+  generated: '2026-10-15'
+  generator: derive-coverage.py (pre-flight evidence)
+  detail: the company publishes no developer documentation host and no machine-readable contract on its own domain
+  evidence:
+  - url: https://sj.se/
+    status: 200
+x-enrichment:
+  date: '2026-10-15'
+  status: enriched
+  artifacts_added: 17
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

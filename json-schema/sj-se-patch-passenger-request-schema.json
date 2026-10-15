@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sj-se/main/json-schema/sj-se-patch-passenger-request-schema.json",
+  "title": "PatchPassengerRequest",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/sj-se-openapi-generated.yml#/components/schemas/PatchPassengerRequest",
+  "type": "object",
+  "properties": {
+    "passenger.id": {
+      "type": "string",
+      "description": "Identifier of the passenger to patch."
+    },
+    "passenger": {
+      "type": "string",
+      "description": "Complete passenger details (firstName, lastName, optional age, cards)."
+    }
+  },
+  "required": [
+    "passenger.id",
+    "passenger"
+  ]
+}
