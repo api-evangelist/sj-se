@@ -1,0 +1,27 @@
+{
+  "provider": "sj-se",
+  "sources": [
+    "_ae-authored/sj-se-openapi-generated.yml"
+  ],
+  "outputs": [
+    "sj-se-availabilities-api-openapi.yml",
+    "sj-se-booking-api-openapi.yml",
+    "sj-se-bookings-api-openapi.yml",
+    "sj-se-contacts-api-openapi.yml",
+    "sj-se-exchange-offers-api-openapi.yml",
+    "sj-se-exchange-operations-api-openapi.yml",
+    "sj-se-fulfillments-api-openapi.yml",
+    "sj-se-offers-api-openapi.yml",
+    "sj-se-passenger-api-openapi.yml",
+    "sj-se-tenant-id-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sj-se-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+10 apis, 11 total)"
+  ],
+  "skipped": []
+}

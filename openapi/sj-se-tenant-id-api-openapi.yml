@@ -1,0 +1,39 @@
+openapi: 3.2.0
+info:
+  title: SJ Tenant Id API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 17 operation(s) read from 3 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; SJ has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 1
+    documentation: 16
+    pages-with-code: 1
+    pages-read: 3
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.sj.se/apis/reseller-api/get-started
+  - https://developer.sj.se/apis/reseller-api/reference-documentation
+  - https://developer.sj.se/apis/customer-api/reference-documentation
+servers:
+- url: https://login.microsoftonline.com
+tags:
+- name: Tenant Id
+paths:
+  /$TENANT_ID/oauth2/v2.0/token:
+    post:
+      operationId: post_TENANT_ID_oauth2_v2_0_token
+      tags:
+      - Tenant Id
+      summary: POST /$TENANT_ID/oauth2/v2.0/token
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl Example request-response (cUrl) curl -X POST \"https://login.microsoftonline.com/$TENANT_ID/oauth2/v2.0/token\"  -d \"client_id=$CLIENT_ID\"  -d \"grant_type=$GRANT_TYPE\"  -d \"client_secret=$CLIENT_SECRET\"  -d \"scope=$SCOPE\"  Response \n{ \n \"token_type\": \"Bearer\", \n \"expires_in\": 3599, \n \"ext_expires_in\": 3599, \n \"access_token\": <JWT_TOKEN> \n} Requestor header Each sales channel connected to the Re"

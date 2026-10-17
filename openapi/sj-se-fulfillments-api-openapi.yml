@@ -1,0 +1,58 @@
+openapi: 3.2.0
+info:
+  title: SJ Fulfillments API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 17 operation(s) read from 3 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; SJ has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 1
+    documentation: 16
+    pages-with-code: 1
+    pages-read: 3
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.sj.se/apis/reseller-api/get-started
+  - https://developer.sj.se/apis/reseller-api/reference-documentation
+  - https://developer.sj.se/apis/customer-api/reference-documentation
+servers:
+- url: https://login.microsoftonline.com
+tags:
+- name: Fulfillments
+paths:
+  /fulfillments/{fulfillmentid}:
+    get:
+      operationId: get_fulfillments_fulfillmentid
+      tags:
+      - Fulfillments
+      summary: GET /fulfillments/{fulfillmentId} retrieves fulfillment details such as control…
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      parameters:
+      - name: fulfillmentid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFulfillmentsFulfillmentidResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetFulfillmentsFulfillmentidResponse:
+      type: object
+      properties:
+        fulfillment.controlNumber:
+          type: string
+          description: Ticket number.
+        fulfillment.aztecCode:
+          type: string
+          description: Base64 string of the Aztec code.

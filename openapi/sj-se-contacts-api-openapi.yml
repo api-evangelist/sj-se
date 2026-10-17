@@ -1,0 +1,73 @@
+openapi: 3.2.0
+info:
+  title: SJ Contacts API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 17 operation(s) read from 3 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; SJ has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 1
+    documentation: 16
+    pages-with-code: 1
+    pages-read: 3
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.sj.se/apis/reseller-api/get-started
+  - https://developer.sj.se/apis/reseller-api/reference-documentation
+  - https://developer.sj.se/apis/customer-api/reference-documentation
+servers:
+- url: https://login.microsoftonline.com
+tags:
+- name: Contacts
+paths:
+  /contacts/{contactid}:
+    post:
+      operationId: post_contacts_contactid
+      tags:
+      - Contacts
+      summary: Search for an SJ customer by e-mail address
+      x-source: https://developer.sj.se/apis/customer-api/reference-documentation
+      parameters:
+      - name: contactid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostContactsContactidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostContactsContactidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at contactId
+components:
+  schemas:
+    PostContactsContactidResponse:
+      type: object
+      properties:
+        '200':
+          type: string
+          description: A Customer object (see schema definitions)
+        '404':
+          type: string
+          description: There is no SJ customer with this email address.
+    PostContactsContactidRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Must be URL encoded
+      required:
+      - email

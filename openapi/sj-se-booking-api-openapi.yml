@@ -1,0 +1,159 @@
+openapi: 3.2.0
+info:
+  title: SJ Booking API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 17 operation(s) read from 3 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; SJ has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 1
+    documentation: 16
+    pages-with-code: 1
+    pages-read: 3
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.sj.se/apis/reseller-api/get-started
+  - https://developer.sj.se/apis/reseller-api/reference-documentation
+  - https://developer.sj.se/apis/customer-api/reference-documentation
+servers:
+- url: https://login.microsoftonline.com
+tags:
+- name: Booking
+paths:
+  /Booking:
+    get:
+      operationId: get_Booking
+      tags:
+      - Booking
+      summary: Quick Start Guide for SJ Reseller API
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookingResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_Booking
+      tags:
+      - Booking
+      summary: Quick Start Guide for SJ Reseller API
+      x-source: https://developer.sj.se/apis/reseller-api/get-started
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBookingRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /booking:
+    get:
+      operationId: get_booking
+      tags:
+      - Booking
+      summary: GET /booking retrieves a booking, including any provisional fulfillmentId
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookingResponse2'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_booking
+      tags:
+      - Booking
+      summary: POST /booking creates a provisional booking with required externalRef and…
+      x-source: https://developer.sj.se/apis/reseller-api/reference-documentation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBookingRequest2'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostBookingResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostBookingResponse:
+      type: object
+      properties:
+        booking.id:
+          type: string
+          description: Booking identifier.
+        booking.bookingCode:
+          type: string
+          description: Same value as booking.id.
+    GetBookingResponse:
+      type: object
+      properties:
+        booking:
+          type: object
+          description: Complete booking information with tickets
+    GetBookingResponse2:
+      type: object
+      properties:
+        booking.id:
+          type: string
+          description: Booking identifier.
+        booking.fulfillmentId:
+          type: string
+          description: Identifier of the fulfillment (if present).
+    PostBookingRequest2:
+      type: object
+      properties:
+        bookingrequest.externalRef:
+          type: string
+          description: Unique booking reference in the caller’s system.
+        passenger:
+          type: string
+          description: Passenger information (firstName, lastName, optional email/phone).
+        placeSelection:
+          type: string
+          description: Place selection for seat/compartment.
+      required:
+      - bookingrequest.externalRef
+      - passenger
+    PostBookingRequest:
+      type: object
+      properties:
+        externalRef:
+          type: string
+          description: Client‑side booking reference
+        purchaser:
+          type: object
+          description: Purchaser details
+        offers:
+          type: array
+          description: Selected offer IDs and passenger references
+        passengerSpecifications:
+          type: array
+          description: Passenger data for the booking
+        embed:
+          type: array
+          description: Embedding options, e.g., "ALL"
+      required:
+      - externalRef
+      - purchaser
+      - offers
+      - passengerSpecifications

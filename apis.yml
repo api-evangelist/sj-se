@@ -70,17 +70,16 @@ apis:
     checked: '2026-10-15'
   properties: []
   aid: sj-se:sj-api
-- aid: sj-se:sj-se-api
-  name: SJ API
-  description: 'SJ API as documented publicly: 17 operations. Contract generated from the documentation by API Evangelist (2026-10-15); not the
-
-    provider''s own document.'
-  humanURL: https://developer.sj.se/apis/reseller-api/get-started
+- aid: sj-se:sj-se-availabilities-api
+  name: SJ Availabilities API
+  description: The Availabilities API from SJ — 2 operation(s) for availabilities.
+  humanURL: https://developer.sj.se/apis
   baseURL: https://login.microsoftonline.com
+  tags:
+  - Availabilities
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/sj-se-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/sj-se-availabilities-api-openapi.yml
   - type: JSONSchema
     url: json-schema/sj-se-post-booking-request-schema.json
   - type: JSONSchema
@@ -93,7 +92,204 @@ apis:
     url: json-schema/sj-se-patch-passenger-request-schema.json
   - type: JSONSchema
     url: json-schema/sj-se-post-contacts-contactid-response-schema.json
-
+- aid: sj-se:sj-se-booking-api
+  name: SJ Booking API
+  description: The Booking API from SJ — 2 operation(s) for booking.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Booking
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-booking-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-bookings-api
+  name: SJ Bookings API
+  description: The Bookings API from SJ — 2 operation(s) for bookings.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Bookings
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-bookings-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-contacts-api
+  name: SJ Contacts API
+  description: The Contacts API from SJ — 1 operation(s) for contacts.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-contacts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-exchange-offers-api
+  name: SJ Exchange Offers API
+  description: The Exchange Offers API from SJ — 1 operation(s) for exchange offers.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Exchange Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-exchange-offers-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-exchange-operations-api
+  name: SJ Exchange Operations API
+  description: The Exchange Operations API from SJ — 1 operation(s) for exchange operations.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Exchange Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-exchange-operations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-fulfillments-api
+  name: SJ Fulfillments API
+  description: The Fulfillments API from SJ — 1 operation(s) for fulfillments.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Fulfillments
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-fulfillments-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-offers-api
+  name: SJ Offers API
+  description: The Offers API from SJ — 2 operation(s) for offers.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-offers-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-passenger-api
+  name: SJ Passenger API
+  description: The Passenger API from SJ — 1 operation(s) for passenger.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Passenger
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-passenger-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
+- aid: sj-se:sj-se-tenant-id-api
+  name: SJ Tenant Id API
+  description: The Tenant Id API from SJ — 1 operation(s) for tenant id.
+  humanURL: https://developer.sj.se/apis
+  baseURL: https://login.microsoftonline.com
+  tags:
+  - Tenant Id
+  properties:
+  - type: OpenAPI
+    url: openapi/sj-se-tenant-id-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-offers-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-booking-request2-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-patch-passenger-request-schema.json
+  - type: JSONSchema
+    url: json-schema/sj-se-post-contacts-contactid-response-schema.json
 x-coverage:
   state: none
   reason: no-developer-program
